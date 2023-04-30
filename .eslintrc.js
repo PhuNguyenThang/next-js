@@ -15,10 +15,12 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: ["./tsconfig.json"],
     extraFileExtensions: ["css"],
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    project: './tsconfig.json',
   },
-  plugins: ["@typescript-eslint", "etc"],
+  plugins: ["@typescript-eslint", "etc","prettier"],
   rules: {
     quotes: "off",
     semi: ["error", "always"],
@@ -43,5 +45,15 @@ module.exports = {
     "@typescript-eslint/require-await": "off",
     "react/jsx-key": "error",
     "testing-library/prefer-presence-queries": "off",
+    // General ESLint rules
+    'no-console': 'warn',
+    'no-unused-vars': 'warn',
+
+    // TypeScript rules
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+
+    // Prettier rules
+    'prettier/prettier': 'warn',
   },
 }
